@@ -26,28 +26,30 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, Category = "Resources")
-	int Wood;
-
+	// Name used to identify the type of resource.
 	UPROPERTY(EditAnywhere)
 	FString resourceName = "Wood";
 
+	// Amount of the resource received each time it is collected.
 	UPROPERTY(EditAnywhere)
 	int resourceAmount = 5;
 
+	// Total amount available before the resource becomes depleted.
 	UPROPERTY(EditAnywhere)
 	int totalResource = 100;
 
+	// Text used to display the resource's name in the game world.
 	UPROPERTY()
 	FText tempText;
 
+	// Component used to display the resource name above the resource.
 	UPROPERTY(EditAnywhere)
 	UTextRenderComponent* ResourceNameText;
 
+	// Static mesh component representing the physical resource object.
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Mesh;
 
+	// Static mesh asset used by the resource.
 	UPROPERTY(EditAnywhere)
 	UStaticMesh* resourceMesh;
-
-};
