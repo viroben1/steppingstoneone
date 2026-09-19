@@ -7,7 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "Resource_M.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "BuildingPart.h"
 #include "PlayerChar.generated.h"
 
 
@@ -92,6 +92,18 @@ public:
 	UPROPERTY(EditAnywhere, Category = "HitMarker")
 	UMaterialInterface* hitDecal;
 
+	UPROPERTY(EditAnywhere, BluePrintReadWrite,Category = "Building Supplies")
+	TArray<int> BuildingArray;
+	
+	UPROPERTY()
+	bool isBuilding;
+	
+	UPROPERTY(EditDefaultsOnly, BluePrintReadWrite)
+	TSubclassOf<ABuildingPart> BuildPartClass;
+	
+	UPROPERTY()
+	ABuildingPart* spawnedPart;
+
 	// Function used to increase or decrease the player's health.
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(float amount);
@@ -111,4 +123,13 @@ public:
 	// Function used to add the collected resource amount to the correct resource type.
 	UFUNCTION()
 	void GiveResource(float amount, FString resourceType);
+	
+	UFUNCTION(BluePrintCallable)
+	void UpdateResources(float woodAmount, float stoneAmount, FString buildingObject);
+	
+	UFUNCTION(BluePrintCallable)
+	void SpawnBuilding(int buildingID, bool& isSuccess);
+	
+	UFUNCTION()
+	void RotateBuilding();
 };

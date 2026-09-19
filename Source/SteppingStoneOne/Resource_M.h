@@ -53,3 +53,4 @@ public:
 	// Static mesh asset used by the resource.
 	UPROPERTY(EditAnywhere)
 	UStaticMesh* resourceMesh;
+};
