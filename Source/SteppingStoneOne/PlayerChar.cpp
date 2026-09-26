@@ -24,6 +24,10 @@ APlayerChar::APlayerChar()
 	ResourcesNameArray.Add(TEXT("Stone"));
 	ResourcesNameArray.Add(TEXT("Berry"));
 
+	//GiveResource(10, TEXT("Wood"));
+	//GiveResource(10, TEXT("Stone"));
+	//GiveResource(10, TEXT("Berry"));
+
 }
 
 // Called when the game starts or when spawned
@@ -45,6 +49,8 @@ void APlayerChar::BeginPlay()
 void APlayerChar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	playerUI->UpdateBars(Health, Hunger, Stamina);
 
 	if (isBuilding)
 	{
@@ -248,19 +254,19 @@ void APlayerChar::DecreaseStats()
 void APlayerChar::GiveResource(float amount, FString resourceType)
 {
 	// Add collected wood to index 0 of the resource array.
-	if (resourceType == "Wood *")
+	if (resourceType == "Wood")
 	{
 		ResourcesArray[0] = ResourcesArray[0] + amount;
 	}
 
 	// Add collected stone to index 1 of the resource array.
-	if (resourceType == "Stone *")
+	if (resourceType == "Stone")
 	{
 		ResourcesArray[1] = ResourcesArray[1] + amount;
 	}
 
 	// Add collected berries to index 2 of the resource array.
-	if (resourceType == "Berry *")
+	if (resourceType == "Berry")
 	{
 		ResourcesArray[2] = ResourcesArray[2] + amount;
 	}

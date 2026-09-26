@@ -8,6 +8,7 @@
 #include "Resource_M.h"
 #include "Kismet/GameplayStatics.h"
 #include "BuildingPart.h"
+#include "PlayerWidget.h"
 #include "PlayerChar.generated.h"
 
 
@@ -103,6 +104,9 @@ public:
 	
 	UPROPERTY()
 	ABuildingPart* spawnedPart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UPlayerWidget* playerUI;
 
 	// Function used to increase or decrease the player's health.
 	UFUNCTION(BlueprintCallable)
