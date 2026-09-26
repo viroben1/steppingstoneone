@@ -13,7 +13,7 @@ UCLASS()
 class STEPPINGSTONEONE_API UPlayerWidget : public UUserWidget
 {
 	GENERATED_BODY()
-
+	// Updates the player's health, hunger, and stamina bars in the UI.
 public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateBars(float Health1, float Hunger1, float Stamina1);

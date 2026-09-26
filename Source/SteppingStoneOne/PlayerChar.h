@@ -105,6 +105,7 @@ public:
 	UPROPERTY()
 	ABuildingPart* spawnedPart;
 
+	// Stores a reference to the player's UI widget so its display can be updated.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UPlayerWidget* playerUI;
 
