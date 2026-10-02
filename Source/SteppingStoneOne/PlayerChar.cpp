@@ -43,6 +43,13 @@ void APlayerChar::BeginPlay()
 		2.0f,
 		true
 	);
+
+	if (objWidget)
+	{
+		objWidget->UpdatebuildOBJ(0.0f);
+
+		objWidget->UpdatematOBJ(0.0f);
+	}
 }
 
 // Called every frame
@@ -160,6 +167,10 @@ void APlayerChar::FindObject()
 						// Add the collected resource to the player's resource array.
 						GiveResource(resourceValue, hitName);
 
+						matsCollected = matsCollected + resourceValue;
+
+						objWidget->UpdatematOBJ(matsCollected);
+
 						// Display a message confirming that the resource was collected.
 						check(GEngine != nullptr);
 						GEngine->AddOnScreenDebugMessage(
@@ -194,8 +205,8 @@ void APlayerChar::FindObject()
 	else
 	{
 		isBuilding = false;
-		//objectsBuilt = objectsBuilt + 1.0f;
-		//objWidget->UpdatebuildObj(objectsBuilt);
+		objectsBuilt = objectsBuilt + 1.0f;
+		objWidget->UpdatebuildOBJ(objectsBuilt);
 	}
 
 	

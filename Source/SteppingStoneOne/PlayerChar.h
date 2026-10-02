@@ -9,6 +9,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "BuildingPart.h"
 #include "PlayerWidget.h"
+#include "ObjectiveWidget.h"
 #include "PlayerChar.generated.h"
 
 
@@ -108,6 +109,15 @@ public:
 	// Stores a reference to the player's UI widget so its display can be updated.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UPlayerWidget* playerUI;
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UObjectiveWidget* objWidget;
+
+		UPROPERTY()
+		float objectsBuilt;
+
+		UPROPERTY()
+		float matsCollected;
 
 	// Function used to increase or decrease the player's health.
 	UFUNCTION(BlueprintCallable)
