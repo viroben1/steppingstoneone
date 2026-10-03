@@ -19,6 +19,6 @@ class STEPPINGSTONEONE_API UObjectiveWidget : public UUserWidget
 	void UpdatematOBJ(float matsCollected);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void UpdatebuildOBJ(float objectsBulit);
+	void UpdatebuildOBJ(float objectsBuilt);
 	
 };
