@@ -57,9 +57,16 @@ void APlayerChar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Updates the UI bars with the player's current health, hunger, and stamina values.
-	playerUI->UpdateBars(Health, Hunger, Stamina);
 
+	// Updates the UI bars with the player's current health, hunger, and stamina values.
+	if (IsAlive)
+	{
+		playerUI->UpdateBars(Health, Hunger, Stamina);
+		if (Health < 0)
+		{
+			IsAlive = false;
+		}
+	}
 	if (isBuilding)
 	{
 		if (spawnedPart) 
@@ -220,6 +227,8 @@ void APlayerChar::SetHealth(float amount)
 	if (Health + amount < 100)
 	{
 		Health = Health + amount;
+		
+	
 	}
 }
 

@@ -70,6 +70,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
 	float Stamina = 100.0f;
 
+	// Stores if the player is currently alive.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
+	bool IsAlive = true; 
+
 	// Stores the amount of wood collected by the player.
 	UPROPERTY(EditAnywhere, Category = "Resources")
 	int Wood;
